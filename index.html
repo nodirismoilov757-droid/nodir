@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nodir — shaxsiy portfolio sayti. Loyihalar, ko'nikmalar va aloqa." />
+  <meta name="theme-color" content="#030712" />
+  <title>Nodir | Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== LOADER ===== -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-core">
+      <div class="loader-ring"></div>
+      <div class="loader-ring loader-ring--2"></div>
+      <span class="loader-logo">N</span>
+    </div>
+    <p class="loader-text">Yuklanmoqda<span id="loaderPercent">0</span>%</p>
+    <div class="loader-bar"><span id="loaderBar"></span></div>
+  </div>
+
+  <!-- ===== BACKGROUND ===== -->
+  <canvas id="bgCanvas" aria-hidden="true"></canvas>
+  <div class="bg-glow bg-glow--1" aria-hidden="true"></div>
+  <div class="bg-glow bg-glow--2" aria-hidden="true"></div>
+  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <nav class="nav-inner">
+      <a href="#home" class="logo" aria-label="Bosh sahifa">
+        <span class="logo-mark">N</span>
+        <span class="logo-text">odir<span class="dot">.</span></span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#gallery" class="nav-link">Gallery</a></li>
+        <li><a href="#goals" class="nav-link">Goals</a></li>
+        <li><a href="#contact" class="nav-link nav-link--cta">Contact</a></li>
+      </ul>
+
+      <button class="burger" id="burger" aria-label="Menyuni ochish" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== 1. HOME ===== -->
+    <section class="section hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="badge reveal"><i class="fa-solid fa-circle"></i> Yangi loyihalar uchun ochiqman</span>
+          <h1 class="hero-title reveal">
+            Salom, men <span class="gradient-text glitch" data-text="Nodir">Nodir</span>
+          </h1>
+          <p class="hero-role reveal">
+            <span class="prompt">&gt;</span>
+            <span id="typedText"></span><span class="caret"></span>
+          </p>
+          <p class="hero-desc reveal">
+            Men g'oyalarni zamonaviy, tez va chiroyli veb-mahsulotlarga aylantiraman.
+            Toza kod, qulay interfeys va mukammal tajriba — mening ustuvorligim.
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#projects" class="btn btn-primary"><span>Loyihalarim</span><i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-ghost"><i class="fa-solid fa-paper-plane"></i><span>Bog'lanish</span></a>
+          </div>
+          <div class="hero-stats reveal">
+            <div class="stat"><strong data-count="20" data-suffix="+">0</strong><span>Loyiha</span></div>
+            <div class="stat"><strong data-count="3" data-suffix="+">0</strong><span>Yil tajriba</span></div>
+            <div class="stat"><strong data-count="15" data-suffix="+">0</strong><span>Mijoz</span></div>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="code-card" id="codeCard">
+            <div class="code-top">
+              <span class="d d-r"></span><span class="d d-y"></span><span class="d d-g"></span>
+              <em>nodir.js</em>
+            </div>
+<pre class="code-body"><code><span class="c-k">const</span> <span class="c-v">nodir</span> = {
+  <span class="c-p">role</span>: <span class="c-s">"Web Developer"</span>,
+  <span class="c-p">focus</span>: [<span class="c-s">"UI"</span>, <span class="c-s">"Performance"</span>],
+  <span class="c-p">coffee</span>: <span class="c-k">Infinity</span>,
+  <span class="c-p">available</span>: <span class="c-k">true</span>
+};
+
+<span class="c-f">buildFuture</span>(nodir);</code></pre>
+          </div>
+          <div class="float-chip chip-1"><i class="fa-brands fa-html5"></i></div>
+          <div class="float-chip chip-2"><i class="fa-brands fa-css3-alt"></i></div>
+          <div class="float-chip chip-3"><i class="fa-brands fa-js"></i></div>
+          <div class="float-chip chip-4"><i class="fa-brands fa-git-alt"></i></div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-down" aria-label="Pastga tushish">
+        <span class="mouse"><span class="wheel"></span></span>
+      </a>
+    </section>
+
+    <!-- ===== 2. ABOUT ===== -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">01 / Tanishuv</span>
+          <h2 class="section-title">About <span class="gradient-text">Me</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-photo reveal">
+            <div class="photo-frame">
+              <div class="photo-ring"></div>
+              <div class="photo-inner">
+                <img id="profileImg" src="images/profile.jpg" alt="Nodir profil rasmi" />
+              </div>
+            </div>
+            <div class="photo-actions">
+              <button class="btn btn-small btn-primary" id="changePhotoBtn" type="button"><i class="fa-solid fa-camera"></i><span>Rasmni almashtirish</span></button>
+              <button class="btn btn-small btn-ghost" id="resetPhotoBtn" type="button" title="Asl holatga qaytarish"><i class="fa-solid fa-rotate-left"></i></button>
+              <input type="file" id="photoInput" accept="image/*" hidden />
+            </div>
+          </div>
+
+          <div class="about-info reveal">
+            <h3>Zamonaviy veb-tajribalar yaratuvchi dasturchi</h3>
+            <p>
+              Men Nodir — veb-dasturlash va interfeys dizayniga ishtiyoqli yosh mutaxassisman.
+              Har bir loyihaga mas'uliyat bilan yondashaman: tez ishlaydigan, chiroyli va
+              barcha qurilmalarga moslashadigan saytlar yarataman.
+            </p>
+            <p>
+              Doimo yangi texnologiyalarni o'rganaman va o'z ustimda ishlayman. Maqsadim —
+              odamlarga haqiqiy foyda beradigan raqamli mahsulotlar yaratish.
+            </p>
+
+            <ul class="info-list">
+              <li><i class="fa-solid fa-user"></i><span>Ism</span><strong>Nodir</strong></li>
+              <li><i class="fa-solid fa-code"></i><span>Soha</span><strong>Web dasturlash</strong></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Manzil</span><strong>O'zbekiston</strong></li>
+              <li><i class="fa-solid fa-bolt"></i><span>Holat</span><strong class="ok">Loyihalarga ochiq</strong></li>
+            </ul>
+
+            <a href="#contact" class="btn btn-primary"><span>Hamkorlik qilamiz</span><i class="fa-solid fa-handshake"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 3. SKILLS ===== -->
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">02 / Imkoniyatlar</span>
+          <h2 class="section-title">My <span class="gradient-text">Skills</span></h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill reveal" data-level="90">
+            <div class="skill-top"><span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+          <article class="skill reveal" data-level="85">
+            <div class="skill-top"><span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3 / Animatsiya</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+          <article class="skill reveal" data-level="80">
+            <div class="skill-top"><span class="skill-name"><i class="fa-brands fa-js"></i> JavaScript</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+          <article class="skill reveal" data-level="70">
+            <div class="skill-top"><span class="skill-name"><i class="fa-brands fa-python"></i> Python</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+          <article class="skill reveal" data-level="75">
+            <div class="skill-top"><span class="skill-name"><i class="fa-solid fa-pen-ruler"></i> UI / UX dizayn</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+          <article class="skill reveal" data-level="72">
+            <div class="skill-top"><span class="skill-name"><i class="fa-brands fa-git-alt"></i> Git &amp; GitHub</span><span class="skill-pct">0%</span></div>
+            <div class="bar"><span class="bar-fill"></span></div>
+          </article>
+        </div>
+
+        <div class="tech-chips reveal">
+          <span>Responsive</span><span>REST API</span><span>Flexbox</span><span>Grid</span><span>SEO</span><span>Figma</span><span>VS Code</span><span>Linux</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 4. PROJECTS ===== -->
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">03 / Ishlar</span>
+          <h2 class="section-title">My <span class="gradient-text">Projects</span></h2>
+        </div>
+
+        <div class="filters reveal" role="tablist" aria-label="Loyiha filtri">
+          <button class="filter active" data-filter="all" type="button">Hammasi</button>
+          <button class="filter" data-filter="web" type="button">Web</button>
+          <button class="filter" data-filter="design" type="button">Dizayn</button>
+          <button class="filter" data-filter="app" type="button">Ilova</button>
+        </div>
+
+        <div class="projects-grid" id="projectsGrid">
+          <!-- Havolalarni (Demo / Kod) o'zingizniki bilan almashtiring -->
+          <article class="project tilt reveal" data-cat="web">
+            <div class="project-thumb thumb-1"><i class="fa-solid fa-globe"></i></div>
+            <div class="project-body">
+              <h3>Biznes landing sahifa</h3>
+              <p>Tezkor, SEO uchun optimallashtirilgan va to'liq responsive landing sayt.</p>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-cat="app">
+            <div class="project-thumb thumb-2"><i class="fa-solid fa-list-check"></i></div>
+            <div class="project-body">
+              <h3>Vazifalar menejeri</h3>
+              <p>Kundalik rejalarni boshqarish uchun qulay va tezkor veb-ilova.</p>
+              <div class="tags"><span>JavaScript</span><span>LocalStorage</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-cat="design">
+            <div class="project-thumb thumb-3"><i class="fa-solid fa-palette"></i></div>
+            <div class="project-body">
+              <h3>Mobil ilova UI dizayni</h3>
+              <p>Zamonaviy, minimalistik va foydalanuvchiga qulay interfeys konsepti.</p>
+              <div class="tags"><span>Figma</span><span>UI/UX</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-cat="web">
+            <div class="project-thumb thumb-4"><i class="fa-solid fa-cart-shopping"></i></div>
+            <div class="project-body">
+              <h3>Onlayn do'kon</h3>
+              <p>Mahsulotlar katalogi, savatcha va qidiruv imkoniyatiga ega do'kon sayti.</p>
+              <div class="tags"><span>HTML</span><span>CSS</span><span>JS</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-cat="app">
+            <div class="project-thumb thumb-5"><i class="fa-solid fa-robot"></i></div>
+            <div class="project-body">
+              <h3>Telegram bot</h3>
+              <p>Foydalanuvchilar bilan avtomatik muloqot qiluvchi aqlli bot.</p>
+              <div class="tags"><span>Python</span><span>API</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project tilt reveal" data-cat="design">
+            <div class="project-thumb thumb-6"><i class="fa-solid fa-cube"></i></div>
+            <div class="project-body">
+              <h3>Brend identika</h3>
+              <p>Logotip, ranglar palitrasi va vizual uslub bo'yicha to'liq brend to'plami.</p>
+              <div class="tags"><span>Branding</span><span>Figma</span></div>
+              <div class="project-links">
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square"></i> Demo</a>
+                <a href="https://github.com/" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> Kod</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 5. GALLERY ===== -->
+    <section class="section" id="gallery">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">04 / Lahzalar</span>
+          <h2 class="section-title">My <span class="gradient-text">Gallery</span></h2>
+        </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== 6. GOALS ===== -->
+    <section class="section" id="goals">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">05 / Kelajak</span>
+          <h2 class="section-title">My <span class="gradient-text">Goals</span></h2>
+        </div>
+
+        <div class="timeline">
+          <div class="goal reveal">
+            <div class="goal-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+            <div class="goal-card">
+              <span class="goal-year">Yaqin kelajak</span>
+              <h3>Chuqur bilim olish</h3>
+              <p>React, Node.js va zamonaviy backend texnologiyalarini mukammal o'zlashtirish.</p>
+            </div>
+          </div>
+          <div class="goal reveal">
+            <div class="goal-icon"><i class="fa-solid fa-briefcase"></i></div>
+            <div class="goal-card">
+              <span class="goal-year">1–2 yil</span>
+              <h3>Professional jamoada ishlash</h3>
+              <p>Xalqaro darajadagi loyihalarda ishtirok etib, tajribani oshirish.</p>
+            </div>
+          </div>
+          <div class="goal reveal">
+            <div class="goal-icon"><i class="fa-solid fa-earth-asia"></i></div>
+            <div class="goal-card">
+              <span class="goal-year">3–5 yil</span>
+              <h3>Xalqaro mutaxassis bo'lish</h3>
+              <p>Dunyo bo'ylab mijozlar bilan masofadan ishlab, o'z nomimni qurish.</p>
+            </div>
+          </div>
+          <div class="goal reveal">
+            <div class="goal-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div class="goal-card">
+              <span class="goal-year">Katta orzu</span>
+              <h3>O'z IT startapimni ochish</h3>
+              <p>Ko'plab odamlarga foyda beradigan mahsulot yaratib, yangi ish o'rinlari ochish.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 7. CONTACT ===== -->
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-tag">06 / Aloqa</span>
+          <h2 class="section-title">Let's <span class="gradient-text">Connect</span></h2>
+          <p class="section-sub">G'oyangiz bormi? Yozing — birgalikda ro'yobga chiqaramiz.</p>
+        </div>
+
+        <!-- Havolalarni o'zingiznikiga almashtiring -->
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="https://t.me/username" target="_blank" rel="noopener">
+            <i class="fa-brands fa-telegram"></i><h3>Telegram</h3><span>@username</span>
+          </a>
+          <a class="contact-card reveal" href="https://instagram.com/username" target="_blank" rel="noopener">
+            <i class="fa-brands fa-instagram"></i><h3>Instagram</h3><span>@username</span>
+          </a>
+          <a class="contact-card reveal" href="https://github.com/username" target="_blank" rel="noopener">
+            <i class="fa-brands fa-github"></i><h3>GitHub</h3><span>/username</span>
+          </a>
+          <a class="contact-card reveal" href="https://linkedin.com/in/username" target="_blank" rel="noopener">
+            <i class="fa-brands fa-linkedin"></i><h3>LinkedIn</h3><span>/in/username</span>
+          </a>
+          <a class="contact-card reveal" href="mailto:nodir@example.com">
+            <i class="fa-solid fa-envelope"></i><h3>Email</h3><span>nodir@example.com</span>
+          </a>
+        </div>
+
+        <div class="contact-cta reveal">
+          <button class="btn btn-primary" id="copyEmailBtn" type="button" data-email="nodir@example.com">
+            <i class="fa-regular fa-copy"></i><span>Emailni nusxalash</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p class="footer-brand"><span class="gradient-text">Nodir Portfolio</span></p>
+      <p class="footer-copy">&copy; <span id="year">2026</span> Barcha huquqlar himoyalangan</p>
+    </div>
+  </footer>
+
+  <!-- ===== LIGHTBOX ===== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lb-btn lb-close" id="lbClose" type="button" aria-label="Yopish"><i class="fa-solid fa-xmark"></i></button>
+    <button class="lb-btn lb-prev" id="lbPrev" type="button" aria-label="Oldingi"><i class="fa-solid fa-chevron-left"></i></button>
+    <figure class="lb-figure">
+      <img id="lbImg" src="" alt="" />
+      <figcaption id="lbCaption"></figcaption>
+    </figure>
+    <button class="lb-btn lb-next" id="lbNext" type="button" aria-label="Keyingi"><i class="fa-solid fa-chevron-right"></i></button>
+  </div>
+
+  <!-- ===== TOAST & BACK TO TOP ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <button class="to-top" id="toTop" type="button" aria-label="Yuqoriga"><i class="fa-solid fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
